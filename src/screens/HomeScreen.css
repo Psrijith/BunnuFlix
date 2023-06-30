@@ -1,0 +1,5 @@
+* {
+  ::-webkit-scrollbar {
+    width: 0em; /* Set a width for the scrollbar */
+  }
+}

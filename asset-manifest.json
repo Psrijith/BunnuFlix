@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/BunnuFlix/static/css/main.3d34658b.css",
+    "main.js": "/BunnuFlix/static/js/main.236e4359.js",
+    "static/js/787.440c4889.chunk.js": "/BunnuFlix/static/js/787.440c4889.chunk.js",
+    "index.html": "/BunnuFlix/index.html",
+    "main.3d34658b.css.map": "/BunnuFlix/static/css/main.3d34658b.css.map",
+    "main.236e4359.js.map": "/BunnuFlix/static/js/main.236e4359.js.map",
+    "787.440c4889.chunk.js.map": "/BunnuFlix/static/js/787.440c4889.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3d34658b.css",
+    "static/js/main.236e4359.js"
+  ]
+}

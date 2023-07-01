@@ -1,3 +1,4 @@
+// App.js
 import React, { useEffect } from "react";
 import "./App.css";
 import HomeScreen from "./screens/HomeScreen";
@@ -8,10 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
 import ProfileScreen from "./screens/ProfileScreen";
 
-
 function App() {
   const user = useSelector(selectUser);
-  //const user=null;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +23,6 @@ function App() {
           })
         );
       } else {
-        //logged out
         dispatch(logout());
       }
     });
@@ -35,14 +33,16 @@ function App() {
   return (
     <div className="app">
       <Router>
-        {!user ? (
-          <LoginScreen />
-        ) : (
-          <Routes>
-            <Route path="/profile" element={<ProfileScreen />} />
-            <Route path="/" element={<HomeScreen />} />
-          </Routes>
-        )}
+        <Routes>
+          {!user ? (
+            <Route path="/" element={<LoginScreen />} />
+          ) : (
+            <>
+              <Route path="/profile" element={<ProfileScreen />} />
+              <Route path="/" element={<HomeScreen />} />
+            </>
+          )}
+        </Routes>
       </Router>
     </div>
   );

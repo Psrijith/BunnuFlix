@@ -5,27 +5,32 @@ import axios from "./axios";
 import requests from "./Request";
 
 function Banner() {
+  // State to store the movie data
+  const [movie, setMovie] = useState([]);
 
-    const [movie, setMovie] = useState([]);
+  // Function to truncate long strings
+  function truncate(string, n) {
+    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+  }
 
-    function truncate(string,n){
-        return string?.length > n?string.substr(0,n-1)+'...':string;
+  // useEffect hook to fetch data from the API when the component mounts
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(requests.fetchNetflixOriginals);
+      // Select a random movie from the fetched data and set it to state
+      setMovie(
+        request.data.results[
+          Math.floor(Math.random() * request.data.results.length - 1)
+        ]
+      );
+      return requests;
     }
-    useEffect(() => {
-        async function fetchData(){
-            const request = await axios.get(requests.fetchNetflixOriginals)
-            setMovie(
-                request.data.results[
-                    Math.floor(Math.random() * request.data.results.length-1)
-                ]
-            );
-            return requests;
-        }
-        fetchData();
-    },[]);
+    fetchData();
+  }, []);
 
-console.log(movie);
+  console.log(movie); // This logs the 'movie' state to the console
 
+  // JSX to render the header banner
   return (
     <header
       className="banner"
@@ -54,3 +59,4 @@ console.log(movie);
 }
 
 export default Banner;
+
